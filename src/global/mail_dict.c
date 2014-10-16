@@ -38,6 +38,7 @@
 #include <dict_pgsql.h>
 #include <dict_sqlite.h>
 #include <dict_memcache.h>
+#include <dict_redis.h>
 #include <dict_mongodb.h>
 #include <mail_dict.h>
 
@@ -59,6 +60,9 @@ static const DICT_OPEN_INFO dict_open_info[] = {
 #endif
 #ifdef HAS_SQLITE
     DICT_TYPE_SQLITE, dict_sqlite_open,
+#endif
+#ifdef HAS_REDIS
+    DICT_TYPE_REDIS, dict_redis_open,
 #endif
     DICT_TYPE_MEMCACHE, dict_memcache_open,
     DICT_TYPE_MONGODB, dict_mongodb_open,
